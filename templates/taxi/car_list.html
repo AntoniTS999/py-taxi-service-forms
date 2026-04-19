@@ -1,16 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1><a style="float: right" href="{% url 'taxi:car-create' %}">ADD NEW</a>Car list</h1>
+  <h1><a class="btn btn-info" style="float: right" href="{% url 'taxi:car-create' %}">ADD NEW</a>Car list</h1>
   {% if car_list %}
     <table class="table">
       <thead class="thead-dark">
         <tr>
           <th scope="col">ID</th>
           <th scope="col">MODEL</th>
-          <th>Manufacture</th>
-          <th scope="col">UPDATE</th>
-          <th scope="col">DELETE</th>
+          <th scope="col">Manufacture</th>
         </tr>
       </thead>
       <tbody>
@@ -19,8 +17,6 @@
           <td><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a></td>
           <td>{{ car.model }}</td>
           <td>{{ car.manufacturer.name }}</td>
-          <td><a href="{% url 'taxi:car-update' pk=car.id %}">UPDATE</a></td>
-          <td><a href="{% url 'taxi:car-delete' pk=car.id %}">DELETE</a></td>
         </tr>
       {% endfor %}
       </tbody>
