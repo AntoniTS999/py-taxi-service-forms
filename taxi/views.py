@@ -93,6 +93,7 @@ class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
         context["next"] = self.request.META.get("HTTP_REFERER")
         return context
 
+
 class DriverListView(LoginRequiredMixin, generic.ListView):
     model = Driver
     paginate_by = 5
