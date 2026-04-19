@@ -53,8 +53,8 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_confirm_delete.html"
 
-    def get_success_url(self, **kwargs):
-        context = self.get_context_data(**kwargs)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         context["next"] = self.request.META.get("HTTP_REFERER")
         return context
 
@@ -88,8 +88,8 @@ class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_confirm_delete.html"
 
-    def get_success_url(self, **kwargs):
-        context = self.get_context_data(**kwargs)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         context["next"] = self.request.META.get("HTTP_REFERER")
         return context
 
